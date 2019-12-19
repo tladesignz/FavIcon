@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.pod_target_xcconfig = {
-    'SWIFT_VERSION' => '4.0',
+    'SWIFT_VERSION' => '5.0',
     'SWIFT_WHOLE_MODULE_OPTIMIZATION' => 'YES',
   }
   s.xcconfig = {
