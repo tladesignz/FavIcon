@@ -48,6 +48,14 @@ enum IconError: Error {
 }
 
 public final class FavIcon {
+
+    /// Session used for downloading. Can be overriden if necessary.
+    public static var downloadSession = URLSession(configuration: .ephemeral)
+
+    /// Callback to authorize concrete icon URLs before trying to download
+    public static var authorize = { (url: URL) in return true }
+
+
     /// Scans a base URL, attempting to determine all of the supported icons that can
     /// be used for favicon purposes.
     ///

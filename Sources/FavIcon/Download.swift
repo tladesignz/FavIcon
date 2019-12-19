@@ -32,8 +32,6 @@ enum DownloadError: Error {
     case serverError(code: Int)
 }
 
-private let downloadSession = URLSession(configuration: .ephemeral)
-
 func downloadURLs(_ urls: [URL], method: String = "GET", completion: @escaping ([DownloadResult]) -> Void) {
     let dispatchGroup = DispatchGroup()
 
@@ -47,9 +45,13 @@ func downloadURLs(_ urls: [URL], method: String = "GET", completion: @escaping (
     for (index, url) in urls.enumerated() {
         dispatchGroup.enter()
 
+        if !FavIcon.authorize(url) {
+            continue
+        }
+
         var request = URLRequest(url: url)
         request.httpMethod = method
-        let task = downloadSession.dataTask(with: request) { data, response, error in
+        let task = FavIcon.downloadSession.dataTask(with: request) { data, response, error in
             defer {
                 dispatchGroup.leave()
             }
