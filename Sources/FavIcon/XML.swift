@@ -1,6 +1,6 @@
 //
 // FavIcon
-// Copyright © 2019 Leon Breedt
+// Copyright © 2020 Leon Breedt
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,9 +16,7 @@
 //
 
 import Foundation
-
-import Foundation
-import libxmlFavicon
+import libxml2
 
 final class XMLDocument {
     fileprivate var _document: xmlDocPtr!
