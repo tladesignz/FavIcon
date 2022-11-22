@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+    // swift-tools-version:5.1
 
 //
 // FavIcon
@@ -23,8 +23,8 @@ import PackageDescription
 let package = Package(
     name: "FavIcon",
     platforms: [
-        .macOS("10.10"),
-        .iOS("9.0")
+        .macOS("10.13"),
+        .iOS("11.0")
     ],
     products: [
         .library(name: "FavIcon", targets: ["FavIcon"])
